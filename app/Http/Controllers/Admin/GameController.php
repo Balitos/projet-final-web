@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Game;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class GameController extends Controller
@@ -15,7 +16,7 @@ class GameController extends Controller
     public function index()
     {
         $games = Game::all();
-        return view('game.index')->with('games', $games);
+        return view('admin.game.index')->with('games', $games);
     }
 
     /**
@@ -25,7 +26,7 @@ class GameController extends Controller
      */
     public function create()
     {
-        return view('game.create'); 
+        return view('admin.game.create'); 
     }
 
     /**
@@ -79,7 +80,7 @@ class GameController extends Controller
             $request->session()->flash('error', "Le jeu n'a pas été crée");
         };
 
-        return redirect()->route('game.index');
+        return redirect()->route('admin.game.index');
     }
 
     /**
@@ -101,7 +102,7 @@ class GameController extends Controller
      */
     public function edit(Game $game)
     {
-        return view('game.edit')->with('game', $game); 
+        return view('admin.game.edit')->with('game', $game); 
     }
 
     /**
@@ -152,7 +153,7 @@ class GameController extends Controller
             $request->session()->flash('error', "Le jeu n'a pas été modifié");
         };
 
-        return redirect()->route('game.index');
+        return redirect()->route('admin.game.index');
     }
 
     /**
@@ -164,6 +165,6 @@ class GameController extends Controller
     public function destroy(Game $game, Request $request)
     {
         $game->delete();
-        return redirect()->route('game.index');
+        return redirect()->route('admin.game.index');
     }
 }

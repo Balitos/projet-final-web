@@ -67,7 +67,7 @@
                                     <a class="dropdown-item" href="{{ route('admin.users.index') }}">
                                         User management
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('admin.users.index') }}">
+                                    <a class="dropdown-item" href="{{ route('admin.game.index') }}">
                                         Game management
                                     </a>
                                     @endcan

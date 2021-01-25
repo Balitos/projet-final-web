@@ -16,7 +16,7 @@
                 <p class="card-text"><strong>Credits : {{ $user -> credits }}€</strong></p>
 
                 <a href="{{ route('member.profil.edit', $user->id) }}"><button class="btn btn-primary">Editer votre profil</button></a>
-                <a href="{{ route('member.profil.addCredit', $user->id) }}"><button class="btn btn-primary">Ajouter des crédits</button></a>
+                <a href="{{ route('member.profil.indexCredit', $user->id) }}"><button class="btn btn-primary">Ajouter des crédits</button></a>
 
             </div>
         </div>

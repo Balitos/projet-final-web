@@ -31,7 +31,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 });
 
 Route::namespace('Member')->prefix('member')->name('member.')->group(function(){
-    Route::get('profil/addCredit', 'ProfilController@addCredit')->name('profil.addCredit');
+    Route::get('profil/indexCredit', 'ProfilController@indexCredit')->name('profil.indexCredit');
     Route::post('profil/updateCredit', 'ProfilController@updateCredit')->name('profil.updateCredit');
     Route::resource('/profil', 'ProfilController');
     Route::resource('/cart', 'CartController');

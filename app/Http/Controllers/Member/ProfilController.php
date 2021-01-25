@@ -105,9 +105,9 @@ class ProfilController extends Controller
         //
     }
 
-    public function addCredit(User $user)
+    public function indexCredit(User $user)
     {
-        return view('member.profil.addCredit')->with(['user' => $user]);
+        return view('member.profil.indexCredit')->with(['user' => $user]);
     }
 
     public function updateCredit(Request $request, User $user)
@@ -118,7 +118,7 @@ class ProfilController extends Controller
         $credits = $request->input('credits');
 
         $user = User::find($user->id);
-        $user->credits = $credits;
+        $user->credits += $credits;
 
         if($user->save()){
             $request->session()->flash('success', "Les crédits ont bien été ajouté");

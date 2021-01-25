@@ -59,8 +59,8 @@
                                     <a class="dropdown-item" href="{{ route('home') }}">
                                         Home
                                     </a>
-                                    <a class="dropdown-item" href="">
-                                     Personnal Informations
+                                    <a class="dropdown-item" href="{{ route('member.profil.index') }}">
+                                     Profil
                                     </a>
 
                                     @can('manage-users')

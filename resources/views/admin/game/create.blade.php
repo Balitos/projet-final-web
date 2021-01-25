@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-header">Add new game</div>
             <div class="card-body">
-                <form action=" {{ route('game.store') }}" method="POST" enctype="multipart/form-data">
+                <form action=" {{ route('admin.game.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="name">Nom</label>
@@ -40,7 +40,7 @@
                       <div class="form-group">
                             <label for="image">Image</label>
                             <br>
-                            <input type="file" name="image">
+                            <input type="file" name="image" required>
                       </div>
                 <button type="submit" class="btn btn-primary">Add new game</button>
                 </form>

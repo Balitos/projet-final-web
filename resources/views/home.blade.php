@@ -15,7 +15,7 @@
                                             <p class="card-text"><strong>Quantité :</strong> {{ $game->quantity }}</p>
                                             <p class="card-text"><strong>Prix :</strong> {{ $game->price }}</p>
                                             <p class="card-text"><strong>Plateform :</strong> {{ $game->platform }}</p>
-                                            <p class="card-text"><strong>Code d'activation  :</strong> {{ $game->activationCode }}</p>            
+                                            <a class="btn btn-primary" href="{{ route('member.game.show',$game->id) }}" role="button">Détails</a>           
                                         </div>
                                     </div>
                                 </div>

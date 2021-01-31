@@ -59,7 +59,11 @@
                 <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
                   <h5 class="font-weight-bold">{{ Cart::Subtotal()}} €</h5>
                 </li>
-              </ul><a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
+                <form action=" {{ route('member.profil.buyGame') }}" method="GET" enctype="multipart/form-data">
+                  @csrf
+                  <button type="submit" class="btn btn-success rounded-pill py-2 btn-block">Acheter maintenant</button>
+              </form>
+              </ul>
             </div>
           </div>
         </div>

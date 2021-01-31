@@ -7,7 +7,7 @@
 
         <div class="mb-3">
             <label for="" class="form-label">Credits</label>
-            <input type="number" name="credits" class="form-control" value="{{ auth()->user()->credits }}">
+            <input type="number" name="credits" class="form-control" value="10">
         
 
         <button type="submit" class="btn btn-primary">Ajouter vos crédits</button>

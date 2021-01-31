@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $games = Game::all();
+        $games = Game::paginate(2);
         return view('home')->with('games', $games);
     }
 }

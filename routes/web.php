@@ -32,6 +32,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 Route::namespace('Member')->prefix('member')->name('member.')->group(function(){
     Route::get('profil/indexCredit', 'ProfilController@indexCredit')->name('profil.indexCredit');
     Route::post('profil/updateCredit', 'ProfilController@updateCredit')->name('profil.updateCredit');
+    Route::get('profil/buyGame', 'ProfilController@buyGame')->name('profil.buyGame');
     Route::resource('/profil', 'ProfilController');
     Route::resource('/game', 'MemberGameController');
 
@@ -45,3 +46,4 @@ Route::get('/videpanier', function(){
     Cart::destroy();
 });
 
+Route::resource('/review', 'ReviewController');

@@ -49,9 +49,9 @@
                                 </li>
                             @endif
                         @else
-
+                            <a href="{{ route('member.profil.indexCredit') }}">Soldes : {{ auth()->user()->credits }} €</a>
                             <a class="text-muted" href="{{route('cart.index') }}">Panier <span class="badge badge-pill badge-dark">{{ Cart::count() }}</span></a>
-
+                            
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

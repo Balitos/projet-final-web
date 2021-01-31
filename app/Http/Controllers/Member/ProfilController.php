@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Member;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use Mail;
+use PDF;
+use Gloudemans\Shoppingcart\Facades\Cart;
+
 
 class ProfilController extends Controller
 {
@@ -127,5 +131,50 @@ class ProfilController extends Controller
         };
 
         return redirect()->route('member.profil.index');
+    }
+
+    public function buyGame(Request $request, User $user)
+    {
+        $user = auth()->user();
+        //$game = Game::find(auth()->user()->id);
+        $find_user = User::find(auth()->user()->id);
+      //  dd($user->email);
+        $montant = Cart::Subtotal();
+        
+
+        $credits = $find_user->credits;
+
+
+        if($credits-$montant > 0){
+            $newCredit = $credits-$montant;     
+
+        $user->credits = $newCredit;
+//Envoie Facture par mail
+        $pdf = PDF::loadView('cart/facture');
+        $pdf->save('facture.pdf');
+
+        $data["email"] = $user->email;
+        $data["title"] = "Votre clé cd";
+
+        $files = [
+            public_path('facture.pdf'),
+        ];
+
+        Mail::send('cart/facture', $data, function ($message) use ($data, $files) {
+            $message->to($data["email"], $data["email"])
+                ->subject($data["title"]);
+
+            foreach ($files as $file) {
+                $message->attach($file);
+            }
+        });
+///
+        //$game->quantity -= 1; 
+        $user->save();
+        Cart::destroy();
+        return redirect()->route('member.profil.index')->with('success', 'Le jeu a bien été acheté, Votre facture a été envoyé par mail');
+        } else {
+            return redirect()->route('member.profil.index')->with('error', 'Ajoutez des crédits !');
+        }
     }
 }

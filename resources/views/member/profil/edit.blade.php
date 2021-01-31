@@ -23,7 +23,7 @@
                           <input type="email" class="form-control" name="email" id="email" placeholder="Email" value="{{ $user->email }}">
                         </div>
                         <div class="form-group">
-                          <label for="price">Date de naissance</label>
+                          <label for="date">Date de naissance</label>
                           <input type="date" class="form-control" name="date" id="date" placeholder="Date" value="{{ $user->birthday }}">
                         </div>
                   <button type="submit" class="btn btn-primary">Editer le profil</button>

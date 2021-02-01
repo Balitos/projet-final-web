@@ -22,9 +22,16 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
+        $search = $request->input('search') ?? '';
+
+        if ($search != ''){
+        $games = Game::where('name', 'like', '%' . $search . '%')->paginate(2);
+        } else {   
         $games = Game::paginate(2);
-        return view('home')->with('games', $games);
+ 
+        }
+               return view('home')->with('games', $games);
     }
 }

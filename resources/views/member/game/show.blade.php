@@ -27,8 +27,11 @@
                 <br>
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     <h3>Avis : </h3>
-
-                    <a href="{{ route('review.create',$game->id)}}"></a><h3>Ecrivez un avis</h3>
+                    <form action="{{ route('review.create', $game->id)}}" method="POST">
+                        @csrf
+                        <input type="hidden" name="game_id" value="{{ $game->id }}">
+                        <button type="submit" class="btn btn-primary">Ecrivez un avis</button>
+                    </form>
                 </div>
 
     </div>

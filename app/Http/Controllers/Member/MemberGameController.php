@@ -1,6 +1,6 @@
 <?php
 namespace App\Http\Controllers\Member;
-
+use App\User;
 use App\Game;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -46,7 +46,7 @@ class MemberGameController extends Controller
      */
     public function show(Game $game)
     {
-        return view('member.game.show')->with(['game' => $game]);
+        return view('member.game.show')->with('game', $game);
     }
 
     /**

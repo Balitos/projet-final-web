@@ -46,4 +46,6 @@ Route::get('/videpanier', function(){
     Cart::destroy();
 });
 
-Route::resource('/review', 'ReviewController');
+//Route::resource('/review', 'ReviewController');
+Route::post('/review/add', 'ReviewController@create')->name('review.create');
+Route::post('/review/store', 'ReviewController@store')->name('review.store');

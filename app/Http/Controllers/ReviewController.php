@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Review;
 use App\Game;
 use App\User;
+
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
@@ -23,9 +24,11 @@ class ReviewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Game $game)
+    public function create(User $user, Game $game)
     {
-        return view('review.create')->with(['game' => $game]); 
+        return view('review.create')
+        ->with('user', $user)
+        ->with('game', $game);
     }
 
     /**
@@ -34,33 +37,37 @@ class ReviewController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Game $game)
+    public function store(Request $request, User $user)
     {
-        $user = User::find(auth()->user()->id);
-        $game_id = Game::find($game->id);
-        $titre = $request->input('titre');
-        $contenu = $request->input('contenu');
-        $note = $request->input('note');
+         $user = auth()->user()->id;
+
+    
+          $game =$request->game_id;
+
+        dd($user, $game);
+    //     $titre = $request->input('titre');
+    //     $contenu = $request->input('contenu');
+    //     $note = $request->input('note');
 
 
 
-        $review = new Review();
-        $review->titre = $titre;
-        $review->avis = $contenu;
-        $review->note = $note;
-        $review->game_id = $game_id;
-        $review->user_id = $user;
+    //     $review = new Review();
+    //     $review->titre = $titre;
+    //     $review->avis = $contenu;
+    //     $review->note = $note;
+    //     $review->game_id = $game_id;
+    //     $review->user_id = $user;
     
 
-       // $review->save();
+    //    // $review->save();
 
-        if($review->save()){
-            $request->session()->flash('success', "Merci pour votre avis");
-        }else{
-            $request->session()->flash('error', "L'avis n'as pas pu être posté");
-        };
+    //     if($review->save()){
+    //         $request->session()->flash('success', "Merci pour votre avis");
+    //     }else{
+    //         $request->session()->flash('error', "L'avis n'as pas pu être posté");
+    //     };
 
-        return redirect()->route('member.game.show');
+    //     return redirect()->route('member.game.show');
     }
 
     /**

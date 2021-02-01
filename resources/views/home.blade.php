@@ -1,6 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+<form>
+    <div class="form-field">
+        <input type="text" id="search" name="search" class="form-control rounded-1" placeholder="Recherche...." />
+        <button type="submit" class="btn btn-primary">
+            Rechercher
+        </button>
+    </div>
+</form>
     <div class="row justify-content-center">
                 <div class="col-md-8">
                         <div class="card-body">

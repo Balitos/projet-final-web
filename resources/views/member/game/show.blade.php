@@ -5,7 +5,7 @@
     <div class="col-md-8">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     <div class="col" style="margin-top: 35px;">
-                        <div class="card" style="width: 40rem;">
+                        <div class="card" style="width: 30rem; height: 500px;">
                             <img style="height: 150px;" src="{{ asset('storage/image/' . $game->image) }}" class="card-img-top" alt="{{$game->image}}">
                             <div class="card-body">
                                 <h5 class="card-title"><strong>Nom :</strong> {{ $game->name }}</h5>

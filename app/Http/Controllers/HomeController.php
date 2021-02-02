@@ -29,7 +29,7 @@ class HomeController extends Controller
         if ($search != ''){
         $games = Game::where('name', 'like', '%' . $search . '%')->paginate(2);
         } else {   
-        $games = Game::paginate(6);
+        $games = Game::paginate(2);
  
         }
                return view('home')->with('games', $games);

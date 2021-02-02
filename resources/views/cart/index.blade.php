@@ -56,8 +56,8 @@
             <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary </div>
             <div class="p-4">
               <ul class="list-unstyled mb-4">
-                <li class="d-flex justify-content-between py-3 border-bottom" style="color: white"><strong>Total</strong>
-                  <h5 class="font-weight-bold" style="color: white">{{ Cart::Subtotal()}} €</h5>
+                <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
+                  <h5 class="font-weight-bold">{{ Cart::Subtotal()}} €</h5>
                 </li>
                 <form action=" {{ route('member.profil.buyGame') }}" method="GET" enctype="multipart/form-data">
                   @csrf

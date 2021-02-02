@@ -10,3 +10,9 @@ Pour pouvoir notre projet :
 Pour pouvoir afficher les images : 
 
 - php artisan storage:link
+
+
+Dans le .env : 
+
+- rentrez les info de votre base de données
+- rentrez les infos de votre mail + clé password
